@@ -1,0 +1,62 @@
+Admin Commands
+#anon [all / name] [color#] [message]: Global or Player Announcement
+#fw [name] [message]: Forward a player message
+#forcespawn [name]: Force a respawn
+#attacklos [botname] [client] [x or 0] [y or 0] [z or 0]: Check for and force a bot attack
+#botnormal [botname]: remove a bot LOS attack
+#createbotgroup [name]: Create a bot group
+#discardbotgroup [name]: Remove a bot group
+#getbotgroupleader [name]: get the leader of a bot group
+#botgroup [bot] [group]: Add a bot to a group (if possible)
+#rbotgroup [bot]: Remove a bot from a botgroup
+#listbotgroups: List active bot groups
+#setupai ((LEVEL 5)): Restart all bots
+#getadmin [name]: Get the admin level of a player
+#setadmin [name] [level]: Set the admin level of a player
+#eyes [name]: Show a "eyes" camera on the target
+#possess ((LEVEL 4)) [name]: Become [name]
+#revert (non-admin command): Reset control of player
+#fixspellflag [name] ((LEVEL 4)): Reset Spell Delay
+#fixbashflag [name] ((LEVEL 4)): Reset Bash Delay
+#kick [name]: Kicks a player from the game... obvious.. right?
+#kickid [name] [id]: See #kick
+#ban [name] ["absolute" (needs level 5)]: Bans a player from the server, longer than #kick, unless "absolute", which is a perma-ban
+#admin [password]: Become admin, if level is >4, you become a deathknight
+#human ((LEVEL 4)): Revert to human form (if deathknight) 
+#loadworld ((LEVEL 5)): Load the last saved world set
+#saveworld ((LEVEL 5)): Save the world as it is currently
+#loadcharacter ((LEVEL 4)) [name]: Re-load the character of a player
+#getitemcount [name] [item]: Get the amount of an item held by a player.
+#myitem [item] [amount] [prefix (1-6, 3 = normal)] [suffix (1-6, 3 = normal)] Give yourself an item!!!
+#arenacurshort: Unknown effect???
+#teleport [name]: Teleport a player to where you are looking
+#teleport2 [who is teleporting] [who you are going to]: Teleport one player to another
+#follow [bot] [name]: set a bot to follow a player
+#cencelfollow [bot]: have the bot stop following a player
+#freeze [name]: Freeze a player (or bot)
+#cancelfreeze [name]: Un-freeze a player (or bot)
+#kill [name]: DIE DIE DIE!!!!
+#clearchar [name] ((LEVEL 5)): Account reset
+#spawn: Spawn a bot, type #spawn by itself for syntax
+#playanim ((LEVEL 5)) [anim]: Play an animation
+#gettransform: Get your world position (good for map editing)
+#fell [name]: Respawn a player who has "fallen" off the map
+#getstorage [name]: List the items in a player's bank
+#clearstorage [name] ((LEVEL 4)): Clean a player's bank... like an evil little bitch..
+#setstorage [name] [item] [amount]: Set an amount of an item in a player's bank, not as "powerful" as #myitem
+#addsp [name] [amount]: add skill points to a player
+#setsp [name] [amount]: Set [name's] skill points to [amount]
+#addlck [name] [amount]: Add Luck points to a player
+#sethp [name] [amount]: set a player's HP to amount
+#setmana [name] [amount]: set a player's mana to amount
+#addexp [name] [amount]: Add EXP!
+#setexp [name] [amount]: Set EXP!
+#addcoints [name] [amount]: Add $$$
+#addbank [name] [amount]: Add $$$ to bank
+#setteam [name] [#]: Set a player's team
+#setrace [name] [race]: Change a player's race
+#setinvis [name] [1/0]: make or unmake a player invisible.
+#dumbai [name] [1/0]: Set the dumb ai flag on a bot
+#getip [name]: get the IP address of a player
+#setvelocity [name] [x] [y] [z]
+#godmode ((LEVEL 4)): God mode on/off

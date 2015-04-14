@@ -1,0 +1,129 @@
+List of skills and their necessary commands
+
+[NON MAGIC SKILLS]
+Speech:
+#say 0
+#whisper 0
+#tell 0
+#zone 0
+#party 0
+#shout 3
+#g or #global 5
+#group 6
+#guild 50
+
+Backstab:
+#backstab: 15
+#surge 50
+
+Bashing:
+#shove 5
+#bash 15
+#disrupt 50
+#stun 170
+
+Focus:
+#focus 15
+
+Cleaving:
+#cleave 15
+#berserk 50
+#targetleg 150
+
+Ignite Arrow:
+#ignite 15
+
+Stealing:
+#steal 15
+#pickpocket 270
+#mug 620
+
+Sense Heading:
+#compass 3
+#track 15
+#trackpack 85
+
+Hiding:
+#hide 15
+
+[MAGIC]
+To use all magic spells, use #spell or #cast followed by the spell name, some spells require
+another parameter to use.
+
+Offensive Spells:
+Bolt 5
+thorn 15
+fireball 20
+firebomb 35
+icespike 45
+icestorm 85
+ironfist 110
+watersurge 125
+cloud 145
+melt 220
+powercloud 340
+spikes 280
+hellstorm 420
+beam 520
+snowstorm 750
+dimensionrift 950
+
+Neutral Spells:
+Flare 5
+SignalFlare [color] 20
+AdminSignalFlare [color] (ADMIN 3)
+guildteleport [zone name (see below)] 20
+teleport [town or dungeon] 60
+transport [area name (See below)] 200
+masstransport [area name (see below)] 650
+
+Defense Spells:
+heal 10
+shield
+fireshield 60
+earthshield 70
+watershield 80
+strongheal 80
+windshield 90
+energyshield 100
+advheal 110
+gravityshield 140
+expertheal 200
+advshield 290
+advfireshield 420
+advearthshield 440
+advwatershield 480
+advwindshield 500
+advenergyshield 520
+advgravityshield 540
+godlyheal 600
+godlyshield 635
+massshield 680
+fullheal 750
+massheal 850
+massfullheal 950
+heavenlyshield 1100
+
+AREA NAMES:
+TOWNS:
+keldrintown
+ethrenkeep
+delkinport
+jatenoutpost
+pvparena
+guildhall
+snowblind
+
+DUNGEONS:
+keldrinmines
+yolanda
+minotaurslair
+elvenforest
+travelersden
+crypt
+OgreForest
+
+GUILD AREAS:
+peakruins
+RiverFortress
+DarkTower
