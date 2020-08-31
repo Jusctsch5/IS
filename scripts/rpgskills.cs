@@ -50,7 +50,7 @@ $Skill::SenseHeading = 18;
 $Skill::Mining = 19;
 $Skill::Speech = 20;
 $Skill::Haggling = 21;
-$Skill::Dodgeing = 22;
+$Skill::Dodging = 22;
 
 $MinLevel = "L";
 $MinGroup = "G";
@@ -202,7 +202,7 @@ $SkillMultiplier[Cleric, $Skill::Haggling] = 1.0;
 $SkillMultiplier[Cleric, $Skill::Cleaving] = 0.5;
 $SkillMultiplier[Cleric, $Skill::IgniteArrow] = 0.4;
 $SkillMultiplier[Cleric, $Skill::Focus] = 1.5;
-$HPPerLvl[Cleric] = 0;
+$HPPerLvl[Cleric] = 1;
 $EXPmultiplier[Cleric] = 0.85;
 
 //--------------
@@ -214,9 +214,9 @@ $EXPmultiplier[Cleric] = 0.85;
 //Primary Skill: Neutral Casting
 //Secondary Skill: Hiding, Slashing, Spell Resistance
 
-$SkillMultiplier[Druid, $Skill::Slashing] = 1.5;
+$SkillMultiplier[Druid, $Skill::Slashing] = 0.6;
 $SkillMultiplier[Druid, $Skill::Piercing] = 0.7;
-$SkillMultiplier[Druid, $Skill::Bludgeoning] = 0.6;
+$SkillMultiplier[Druid, $Skill::Bludgeoning] = 1.5;
 $SkillMultiplier[Druid, $Skill::Dodging] = 2.0;
 $SkillMultiplier[Druid, $Skill::WeightCapacity] = 2.0;
 $SkillMultiplier[Druid, $Skill::Bashing] = 0.5;
@@ -238,7 +238,7 @@ $SkillMultiplier[Druid, $Skill::Haggling] = 1.3;
 $SkillMultiplier[Druid, $Skill::Cleaving] = 1.0;
 $SkillMultiplier[Druid, $Skill::IgniteArrow] = 0.5;
 $SkillMultiplier[Druid, $Skill::Focus] = 1.0;
-$HPPerLvl[Druid] = 1;
+$HPPerLvl[Druid] = 2;
 $EXPmultiplier[Druid] = 0.8;
 
 //--------------
@@ -381,7 +381,7 @@ $SkillMultiplier[Paladin, $Skill::Haggling] = 1.3;
 $SkillMultiplier[Paladin, $Skill::Cleaving] = 0.5;
 $SkillMultiplier[Paladin, $Skill::IgniteArrow] = 0.5;
 $SkillMultiplier[Paladin, $Skill::Focus] = 0.7;
-$HPPerLvl[Paladin] = 5;
+$HPPerLvl[Paladin] = 10;
 $EXPmultiplier[Paladin] = 1.0;
 
 //--------------
@@ -417,7 +417,7 @@ $SkillMultiplier[Ranger, $Skill::Haggling] = 0.7;
 $SkillMultiplier[Ranger, $Skill::Cleaving] = 0.5;
 $SkillMultiplier[Ranger, $Skill::IgniteArrow] = 1.8;
 $SkillMultiplier[Ranger, $Skill::Focus] = 0.1;
-$HPPerLvl[Ranger] = 10;
+$HPPerLvl[Ranger] = 7;
 $EXPmultiplier[Ranger] = 0.95;
 
 //--------------
@@ -448,12 +448,12 @@ $SkillMultiplier[Mage, $Skill::Endurance] = 0.5;
 $SkillMultiplier[Mage, $Skill::Mining] = 1.0;
 $SkillMultiplier[Mage, $Skill::Speech] = 1.5;
 $SkillMultiplier[Mage, $Skill::SenseHeading] = 0.1;
-$SkillMultiplier[Mage, $Skill::Energy] = 0.0;//not in
+$SkillMultiplier[Mage, $Skill::Energy] = 1.5;
 $SkillMultiplier[Mage, $Skill::Haggling] = 1.0;
 $SkillMultiplier[Mage, $Skill::Cleaving] = 0.1;
 $SkillMultiplier[Mage, $Skill::IgniteArrow] = 1.0;
 $SkillMultiplier[Mage, $Skill::Focus] = 2.0;
-$HPPerLvl[Mage] = 1;
+$HPPerLvl[Mage] = 2;
 $EXPmultiplier[Mage] = 1.0;
 
 //--------------
@@ -489,7 +489,7 @@ $SkillMultiplier[Conjurer, $Skill::Haggling] = 1.3;
 $SkillMultiplier[Conjurer, $Skill::Cleaving] = 0.8;
 $SkillMultiplier[Conjurer, $Skill::IgniteArrow] = 0.5;
 $SkillMultiplier[Conjurer, $Skill::Focus] = 1.5;
-$HPPerLvl[Conjurer] = 5;
+$HPPerLvl[Conjurer] = 4;
 $EXPmultiplier[Conjurer] = 0.95;
 
 //######################################################################################
@@ -618,36 +618,44 @@ $SkillRestriction[CeraphumsFeather] = $Skill::Archery @ " 0";
 
 
 // Chat functions
-$SkillRestriction["#say"] = $Skill::Speech @ " 0";
-$SkillRestriction["#guild"] = $Skill::Speech @ " 50";
 $SkillRestriction["#backstab"] = $Skill::Backstabbing @ " 15";
 $SkillRestriction["#surge"] = $Skill::Backstabbing @ " 50";
-$SkillRestriction["#disrupt"] = $Skill::Bashing @ " 50";
-$SkillRestriction["#berserk"] = $Skill::Cleaving @ " 50";
 $SkillRestriction["#encumber"] = $Skill::Backstabbing @ " 150";
-$SkillRestriction["#targetleg"] = $Skill::Cleaving @ " 150";
-$SkillRestriction["#stun"] = $Skill::Bashing @ " 170";
+
 $SkillRestriction["#ignite"] = $Skill::IgniteArrow @ " 15";
+
 $SkillRestriction["#cleave"] = $Skill::Cleaving @ " 15";
-$SkillRestriction["#shout"] = $Skill::Speech @ " 3";
+$SkillRestriction["#berserk"] = $Skill::Cleaving @ " 50";
+$SkillRestriction["#targetleg"] = $Skill::Cleaving @ " 150";
+
+$SkillRestriction["#say"] = $Skill::Speech @ " 0";
 $SkillRestriction["#whisper"] = $Skill::Speech @ " 0";
 $SkillRestriction["#tell"] = $Skill::Speech @ " 0";
-$SkillRestriction["#global"] = $Skill::Speech @ " 5";
 $SkillRestriction["#zone"] = $Skill::Speech @ " 0";
-$SkillRestriction["#group"] = $Skill::Speech @ " 6";
 $SkillRestriction["#party"] = $Skill::Speech @ " 0";
+$SkillRestriction["#shout"] = $Skill::Speech @ " 3";
+$SkillRestriction["#global"] = $Skill::Speech @ " 0";
+$SkillRestriction["#group"] = $Skill::Speech @ " 5";
+$SkillRestriction["#guild"] = $Skill::Speech @ " 10";
+
 $SkillRestriction["#steal"] = $Skill::Stealing @ " 15";
 $SkillRestriction["#pickpocket"] = $Skill::Stealing @ " 270";
 $SkillRestriction["#mug"] = $Skill::Stealing @ " 620";
+
+$SkillRestriction["#hide"] = $Skill::Hiding @ " 15";
+
+$SkillRestriction["#focus"] = $Skill::Focus @ " 15";
+
+$SkillRestriction["#shove"] = $Skill::Bashing @ " 5";
+$SkillRestriction["#bash"] = $Skill::Bashing @ " 15";
+$SkillRestriction["#disrupt"] = $Skill::Bashing @ " 50";
+$SkillRestriction["#stun"] = $Skill::Bashing @ " 170";
+
 $SkillRestriction["#compass"] = $Skill::SenseHeading @ " 3";
 $SkillRestriction["#track"] = $Skill::SenseHeading @ " 15";
-$SkillRestriction["#trackpack"] = $Skill::SenseHeading @ " 85";
-$SkillRestriction["#hide"] = $Skill::Hiding @ " 15";
-$SkillRestriction["#bash"] = $Skill::Bashing @ " 15";
-$SkillRestriction["#focus"] = $Skill::Focus @ " 15";
-$SkillRestriction["#shove"] = $Skill::Bashing @ " 5";
-$SkillRestriction["#zonelist"] = $Skill::SenseHeading @ " 45";
 $SkillRestriction["#advcompass"] = $Skill::SenseHeading @ " 20";
+$SkillRestriction["#zonelist"] = $Skill::SenseHeading @ " 45";
+$SkillRestriction["#trackpack"] = $Skill::SenseHeading @ " 85";
 
 // Spells
 $SkillRestriction[Bolt] = $Skill::OffensiveCasting @ " 5";
@@ -667,13 +675,16 @@ $SkillRestriction[beam] = $Skill::OffensiveCasting @ " 520";
 $SkillRestriction[dimensionrift] = $Skill::OffensiveCasting @ " 950";
 $SkillRestriction[snowstorm] = $skill::OffensiveCasting @ " 750";
 
+$SkillRestriction[AdminSignalFlare] = $MinAdmin SPC "3";
 $SkillRestriction[Flare] = $Skill::NeutralCasting @ " 5";
 $SkillRestriction[SignalFlare] = $Skill::NeutralCasting @ " 20";
-$SkillRestriction[AdminSignalFlare] = $MinAdmin SPC "3";
-$SkillRestriction[teleport] = $Skill::NeutralCasting @ " 60";
 $SkillRestriction[Guildteleport] = $Skill::NeutralCasting @ " 20";
-$SkillRestriction[AdvGuildteleport] = $Skill::NeutralCasting @ " 260";
+$SkillRestriction[flow] = $Skill::NeutralCasting @ " 50";
+$SkillRestriction[teleport] = $Skill::NeutralCasting @ " 60";
+$SkillRestriction[bound] = $Skill::NeutralCasting @ " 100"; 
 $SkillRestriction[transport] = $Skill::NeutralCasting @ " 200";
+$SkillRestriction[AdvGuildteleport] = $Skill::NeutralCasting @ " 260";
+
 $SkillRestriction[advtransport] = $Skill::NeutralCasting @ " 350";
 //$SkillRestriction[remort] = $Skill::NeutralCasting @ " 0 " @ $MinLevel @ " 101";
 //$SkillRestriction[mimic] = $Skill::NeutralCasting @ " 145 " @ $MinRemort @ " 2";

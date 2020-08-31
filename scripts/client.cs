@@ -1808,6 +1808,10 @@ function clientCmdMissionStartPhase1(%seq, %missionName, %musicTrack)
    LoadingProgressTxt.setValue( "LOADING MISSION" );
    DB_LoadingProgressTxt.setValue( "LOADING MISSION" );
 
+   // RPG Load screen
+   RPGLoadingProgress.setValue( 0 );
+   RPGLoadingProgressTxt.setValue( "LOADING" );
+
    clientCmdPlayMusic(%musicTrack);
    commandToServer('MissionStartPhase1Done', %seq);
    clientCmdResetCommandMap();
@@ -1855,6 +1859,11 @@ function clientCmdMissionStartPhase3(%seq, %missionName)
       DB_LoadingProgress.setValue( 0 );
       LoadingProgressTxt.setValue( "LIGHTING MISSION" );
       DB_LoadingProgressTxt.setValue( "LIGHTING MISSION" );
+      
+      // rpg load screen
+      RPGLoadingProgress.setValue( 1 );   // should be full
+      //RPGLoadingProgressTxt.setValue( "LOADING" );
+      
       $missionLightStarted = true;
       Canvas.repaint();
    }
@@ -1881,6 +1890,11 @@ function ghostAlwaysStarted(%ghostCount)
    DB_LoadingProgress.setValue( 0 );
    LoadingProgressTxt.setValue( "LOADING OBJECTS" );
    DB_LoadingProgressTxt.setValue( "LOADING OBJECTS" );
+   
+   // rpg load screen
+   RPGLoadingProgress.setValue( 0.5 );
+   //RPGLoadingProgressTxt.setValue( "LOADING OBJECTS..." );
+
    Canvas.repaint();
    $ghostCount = %ghostCount;
    $ghostsRecvd = 0;
@@ -1892,6 +1906,11 @@ function ghostAlwaysObjectReceived()
    %pct = $ghostsRecvd / $ghostCount;
    LoadingProgress.setValue( %pct );
    DB_LoadingProgress.setValue( %pct );
+   
+   // rpg loadscreen
+   %pct /= 2;
+   RPGLoadingProgress.setValue( 0.5 + %pct );
+   
    Canvas.repaint();
 }
 
@@ -1917,6 +1936,8 @@ function sceneLightingComplete()
 {
    LoadingProgress.setValue( 1 );
    DB_LoadingProgress.setValue( 1 );
+
+   RPGLoadingProgressTxt.setValue( "WAITING..." );
 
    echo("Scenelighting done...");
    $lightingMission = false;
@@ -1946,6 +1967,10 @@ function ClientReceivedDataBlock(%index, %total)
    %pct = %index / %total;
    LoadingProgress.setValue( %pct );
    LoadingProgress.setValue( %pct );
+   
+   // rpg loadscreen
+   RPGLoadingProgress.setValue( %pct/2 );
+   
    Canvas.repaint();
 }
 

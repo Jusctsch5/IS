@@ -1753,16 +1753,16 @@ function RPGchat(%client, %team, %message, %senderName)
 					%number = GetWord(%cropped, 0);
 					%rest = GetWords(%cropped, 1, 99);
 					%number = mfloor(%number);
-					if(%number > 0 && %number <= 6)
+					if(%number > 0 && %number <= 10)
 					{
 						%number--;
 						storedata(%client, "QuickBind" @ %number, %rest);
 					}
 					else
-						messageClient(%TrueClientId, 'RPGchatCallBack', "Incorrect usage, syntax: #QuickBind [number 1-6] [#command...] example #quickbind 1 #cast thorn");
+						messageClient(%TrueClientId, 'RPGchatCallBack', "Incorrect usage, syntax: #QuickBind [number 1-10] [#command...] example #quickbind 1 #cast thorn");
 				}
 				else
-					messageClient(%TrueClientId, 'RPGchatCallBack', "Incorrect usage, syntax: #QuickBind [number 1-6] [#command...] example #quickbind 1 #cast thorn");
+					messageClient(%TrueClientId, 'RPGchatCallBack', "Incorrect usage, syntax: #QuickBind [number 1-10] [#command...] example #quickbind 1 #cast thorn");
 
 			case "#resetplayer":
 				%race = fetchdata(%TrueClientID, "RACE");
@@ -5347,13 +5347,14 @@ function RPGchat(%client, %team, %message, %senderName)
 			{
 				//process merchant code
 				%trigger[2] = "buy";
+                %trigger[3] = "yes";
+	            %trigger[4] = "no";
 				if($state[%closestId, %TrueClientId] $= "")
 				{
 					if(%initTalk)
 					{
-						AI::sayLater(%TrueClientId, %closestId, "Did you come to see what items you can BUY?", true);
+						AI::sayLater(%TrueClientId, %closestId, "Did you come to see what items you can buy (yes/no)?", true);
 						$state[%closestId, %TrueClientId] = 1;
-						
 					}
 				}
 				else if($state[%closestId, %TrueClientId] $= 1)
@@ -5364,9 +5365,19 @@ function RPGchat(%client, %team, %message, %senderName)
 						SetupShop(%TrueClientId, %closestId);
 
 						AI::sayLater(%TrueClientId, %closestId, "Take a look at what I have.", true);
-						
-						
 					}
+                    if(strstr(%message, %trigger[3]) !$= -1)
+					{
+						$state[%closestId, %TrueClientId] = "";
+						SetupShop(%TrueClientId, %closestId);
+
+						AI::sayLater(%TrueClientId, %closestId, "Ok. Take a look at what I have.", true);
+					}
+                    if(strstr(%message, %trigger[4]) !$= -1)
+					{
+						$state[%closestId, %TrueClientId] = "";
+						AI::sayLater(%TrueClientId, %closestId, "Suit yourself.", true);
+					}					
 				}
 				return;
 			}
@@ -5380,7 +5391,7 @@ function RPGchat(%client, %team, %message, %senderName)
 				{
 					if(%initTalk)
 					{
-						AI::sayLater(%TrueClientId, %closestId, "Would you like to access your bank account? (Yes or No)", true);
+						AI::sayLater(%TrueClientId, %closestId, "Would you like to access your bank account? (yes/no)", true);
 						$state[%closestId, %TrueClientId] = 1;
 					}
 				}

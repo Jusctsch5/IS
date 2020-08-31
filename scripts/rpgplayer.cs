@@ -695,6 +695,9 @@ datablock PlayerData(MonsterArmor) : MaleHumanArmor
 	maxUnderwaterSideSpeed = 50.4;
 	runSurfaceAngle  = 85;
 	jumpSurfaceAngle = 80;
+	
+	flowActive = false;
+    boundActive = false;
 };
 datablock PlayerData(GnollArmor) : MonsterArmor
 {

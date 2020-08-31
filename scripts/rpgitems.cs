@@ -1337,6 +1337,7 @@ function DefineItems()
 	$PrefixExclusions[PaddedArmor] = ",";
 	$SuffixExclusions[PaddedArmor] = ",";
 	$DataBlock[PaddedArmor] = "armor1";
+	$SkillType[PaddedArmor] = $SkillEndurance;
 	$shop::BuyPrice[PaddedArmor] = 100;
 	$item::smith[PaddedArmor,0] = "GnollHide 3 Copper 1 Tin 1 Clay 15"; 
 	$item::smith[PaddedArmor,1] = "GnollHide 1 Copper 1 Tin 1 Clay 5"; 
@@ -1354,6 +1355,7 @@ function DefineItems()
 	$PrefixExclusions[LeatherArmor] = ",";
 	$SuffixExclusions[LeatherArmor] = ",";
 	$DataBlock[LeatherArmor] = "armor1";
+	$SkillType[LeatherArmor] = $SkillEndurance;
 	$shop::BuyPrice[LeatherArmor] = 1000;
 	$item::smith[LeatherArmor,0] = "GnollHide 5 Iron 1 Clay 10 Copper 1 Tin 1"; 
 	$item::smith[LeatherArmor,1] = "GnollHide 2 Clay 4 Copper 1 Tin 1"; 
@@ -1371,6 +1373,7 @@ function DefineItems()
 	$PrefixExclusions[SpikedLeatherArmor] = ",";
 	$SuffixExclusions[SpikedLeatherArmor] = ",";
 	$DataBlock[SpikedLeatherArmor] = "armor1";
+	$SkillType[SpikedLeatherArmor] = $SkillEndurance;
 	$shop::BuyPrice[SpikedLeatherArmor] = 2000;
 	$item::smith[SpikedLeatherArmor,0] = "GnollHide 10 tin 10 copper 10 Iron 6"; 
 	$item::smith[SpikedLeatherArmor,1] = "GnollHide 3 Clay 5 tin 3 copper 3 "; 
@@ -1388,6 +1391,7 @@ function DefineItems()
 	$PrefixExclusions[StuddedLeatherArmor] = ",";
 	$SuffixExclusions[StuddedLeatherArmor] = ",";
 	$DataBlock[StuddedLeatherArmor] = "armor1";
+	$SkillType[StuddedLeatherArmor] = $SkillEndurance;
 	$shop::BuyPrice[StuddedLeatherArmor] = 4000;
 	$item::smith[StuddedLeatherArmor,0] = "GnollHide 16 tin 15 copper 10 Iron 10"; 
 	$item::smith[StuddedLeatherArmor,1] = "GnollHide 5 Clay 10 tin 6 Copper 6"; 
@@ -1405,6 +1409,7 @@ function DefineItems()
 	$PrefixExclusions[HideArmor] = ",";
 	$SuffixExclusions[HideArmor] = ",";
 	$DataBlock[HideArmor] = "armor1";
+	$SkillType[HideArmor] = $SkillEndurance;	
 	$shop::BuyPrice[HideArmor] = 5000;
 	$item::smith[HideArmor,0] = "GnollHide 20 tin 10 copper 10 Iron 6"; 
 	$item::smith[HideArmor,1] = "GnollHide 6 Clay 15 tin 3 copper 3 "; 
@@ -1422,6 +1427,7 @@ function DefineItems()
 	$PrefixExclusions[ScaleMailBody] = ",";
 	$SuffixExclusions[ScaleMailBody] = ",";
 	$DataBlock[ScaleMailBody] = "armor1";
+	$SkillType[ScaleMailBody] = $SkillEndurance;
 	$shop::BuyPrice[ScaleMailBody] = 10000;
 	$itemLongDesc[ScaleMailBody] = "Strong Iron Scales also provide protection against fire damage";
 	$item::smith[ScaleMailBody,0] = "Iron 15 Tin 5 Copper 5 Clay 10 Granite 5"; 
@@ -1440,6 +1446,7 @@ function DefineItems()
 	$PrefixExclusions[BrigandineBody] = ",";
 	$SuffixExclusions[BrigandineBody] = ",";
 	$DataBlock[BrigandineBody] = "armor1";
+	$SkillType[BrigandineBody] = $SkillEndurance;
 	$shop::BuyPrice[BrigandineBody] = 15000;
 	$itemLongDesc[BrigandineBody] = "";
 	$item::smith[BrigandineBody,0] = "Iron 30 Tin 10 Copper 10 Clay 25"; 
@@ -1458,6 +1465,7 @@ function DefineItems()
 	$PrefixExclusions[ChainMailBody] = ",";
 	$SuffixExclusions[ChainMailBody] = ",";
 	$DataBlock[ChainMailBody] = "armor1";
+	$SkillType[ChainMailBody] = $SkillEndurance;
 	$shop::BuyPrice[ChainMailBody] = 20000;
 	$itemLongDesc[ChainMailBody] = "";
 	$item::smith[ChainMailBody,0] = "Iron 25 Coal 10 Tin 10 Copper 10 Clay 15"; 
@@ -1476,6 +1484,7 @@ function DefineItems()
 	$PrefixExclusions[RingMailBody] = ",";
 	$SuffixExclusions[RingMailBody] = ",";
 	$DataBlock[RingMailBody] = "armor1";
+	$SkillType[RingMailBody] = $SkillEndurance;
 	$shop::BuyPrice[RingMailBody] = 25000;
 	$itemLongDesc[RingMailBody] = "";
 	$item::smith[RingMailBody,0] = "Iron 35 Coal 20 Copper 15 Tin 15"; 
@@ -1494,6 +1503,7 @@ function DefineItems()
 	$PrefixExclusions[BandedMailArmor] = ",";
 	$SuffixExclusions[BandedMailArmor] = ",";
 	$DataBlock[BandedMailArmor] = "armor1";
+	$SkillType[BandedMailArmor] = $SkillEndurance;
 	$shop::BuyPrice[BandedMailArmor] = 35000;
 	$itemLongDesc[BandedMailArmor] = "";
 	$item::smith[BandedMailArmor,0] = "Diere 5 Coal 20 Iron 20 Copper 5 Tin 5"; 
@@ -1512,6 +1522,7 @@ function DefineItems()
 	$PrefixExclusions[SplintMailBody] = ",";
 	$SuffixExclusions[SplintMailBody] = ",";
 	$DataBlock[SplintMailBody] = "armor1";
+	$SkillType[SplintMailBody] = $SkillEndurance;
 	$shop::BuyPrice[SplintMailBody] = 50000;
 	$itemLongDesc[SplintMailBody] = "";
 	$item::smith[BandedMailArmor,0] = "Rod 5 Diere 10 Copper 20 Tin 20 Iron 20 Coal 5"; 
@@ -1530,6 +1541,7 @@ function DefineItems()
 	$PrefixExclusions[BronzePlate] = ",";
 	$SuffixExclusions[BronzePlate] = ",";
 	$DataBlock[BronzePlate] = "armor1";
+	$SkillType[BronzePlate] = $SkillEndurance;
 	$shop::BuyPrice[BronzePlate] = 55000;
 	$itemLongDesc[BronzePlate] = "";
 	$item::smith[BandedMailArmor,0] = "Mithril 1 Diere 10 copper 40 Tin 40 Iron 10 Coal 5"; 
@@ -1548,6 +1560,7 @@ function DefineItems()
 	$PrefixExclusions[HalfPlate] = ",";
 	$SuffixExclusions[HalfPlate] = ",";
 	$DataBlock[HalfPlate] = "armor1";
+	$SkillType[HalfPlate] = $SkillEndurance;
 	$shop::BuyPrice[HalfPlate] = 90000;
 	$itemLongDesc[HalfPlate] = "";
 	$item::smith[HalfPlate,0] = "Mithril 5 Coal 20 Iron 10 Diere 10"; 
@@ -1566,6 +1579,7 @@ function DefineItems()
 	$PrefixExclusions[FieldPlate] = ",";
 	$SuffixExclusions[FieldPlate] = ",";
 	$DataBlock[FieldPlate] = "armor1";
+	$SkillType[FieldPlate] = $SkillEndurance;
 	$shop::BuyPrice[FieldPlate] = 110000;
 	$itemLongDesc[FieldPlate] = "";
 	$item::smith[FieldPlate,0] = "Mithril 10 Gold 2 Diere 10 Coal 10 Iron 10"; 
@@ -1584,6 +1598,7 @@ function DefineItems()
 	$PrefixExclusions[DragonMail] = ",";
 	$SuffixExclusions[DragonMail] = ",";
 	$DataBlock[DragonMail] = "armor1";
+	$SkillType[DragonMail] = $SkillEndurance;
 	$shop::BuyPrice[DragonMail] = 250000;
 	$itemLongDesc[DragonMail] = "";
 	$item::smith[DragonMail,0] = "DragonScale 50 Adamite 5 Mithril 10 Gold 10 Silver 10 Sapphire 1"; 
@@ -1602,6 +1617,7 @@ function DefineItems()
 	$PrefixExclusions[FullPlate] = ",";
 	$SuffixExclusions[FullPlate] = ",";
 	$DataBlock[FullPlate] = "armor1";
+	$SkillType[FullPlate] = $SkillEndurance;
 	$shop::BuyPrice[FullPlate] = 150000;
 	$itemLongDesc[FullPlate] = "";
 	$item::smith[FullPlate,0] = "Adamite 10 Mithril 30 Gold 10 Silver 5 Ruby 1"; 
@@ -1620,6 +1636,7 @@ function DefineItems()
 	$PrefixExclusions[KeldrinitePlate] = ",";
 	$SuffixExclusions[KeldrinitePlate] = ",";
 	$DataBlock[KeldrinitePlate] = "armor1";
+	$SkillType[KeldrinitePlate] = $SkillEndurance;
 	$shop::BuyPrice[KeldrinitePlate] = 500000;
 	$itemLongDesc[KeldrinitePlate] = "";
 	$item::smith[KeldrinitePlate,0] = "Keldrinite 10 Adamite 30 Mithril 10 Gold 5 Silver 2 Coal 50 Iron 20 Diamond 1 Ruby 3"; 
@@ -1638,13 +1655,14 @@ function DefineItems()
 	$PrefixExclusions[BasicRobe] = ",";
 	$SuffixExclusions[BasicRobe] = ",";
 	$DataBlock[BasicRobe] = "armor1";
+	$SkillType[BasicRobe] = $Magic;
 	$shop::BuyPrice[BasicRobe] = 200;
-	$item::smith[BasicRobe,0] = "GnollHide 5 Clay 20 Quartz 1"; 
-	$item::smith[BasicRobe,1] = "GnollHide 1 Clay 5 tin 1 "; 
-	$item::smith[BasicRobe,2] = "GnollHide 2 Clay 5 Tin 4 Copper 4"; 
-	$item::smith[BasicRobe,3] = "GnollHide 3 Clay 8 tin 3 copper 3"; 
-	$item::smith[BasicRobe,4] = "GnollHide 4 Clay 10 Tin 4 Copper 4 Quartz 1"; 
-	$item::smith[BasicRobe,5] = "GnollHide 8 Copper 5 Tin 5 Clay 15 Opal 1";
+	$item::smith[BasicRobe,0] = "GnollHide 5 String 2 Quartz 1"; 
+	$item::smith[BasicRobe,1] = "GnollHide 1 String 1 "; 
+	$item::smith[BasicRobe,2] = "GnollHide 2 String 2 "; 
+	$item::smith[BasicRobe,3] = "GnollHide 3 String 3 "; 
+	$item::smith[BasicRobe,4] = "GnollHide 4 String 4 Quartz 1"; 
+	$item::smith[BasicRobe,5] = "GnollHide 8 String 5 Opal 1";
 
 	$ItemType[ApprenticeRobe] = "armor";
 	$ItemSubType[ApprenticeRobe] = $BodyAccessoryType;
@@ -1655,13 +1673,14 @@ function DefineItems()
 	$PrefixExclusions[ApprenticeRobe] = ",";
 	$SuffixExclusions[ApprenticeRobe] = ",";
 	$DataBlock[ApprenticeRobe] = "armor1";
+	$SkillType[ApprenticeRobe] = $Magic;
 	$shop::BuyPrice[ApprenticeRobe] = 2000;
-	$item::smith[ApprenticeRobe,0] = "GnollHide 5 Clay 20 Opal 1"; 
-	$item::smith[ApprenticeRobe,1] = "GnollHide 1 Clay 5 tin 1 "; 
-	$item::smith[ApprenticeRobe,2] = "GnollHide 2 Clay 5 Tin 4 Copper 4"; 
-	$item::smith[ApprenticeRobe,3] = "GnollHide 3 Clay 8 tin 3 copper 3 Quartz 1"; 
-	$item::smith[ApprenticeRobe,4] = "GnollHide 4 Clay 10 Tin 4 Copper 4 Iron 1 Opal 1"; 
-	$item::smith[ApprenticeRobe,5] = "GnollHide 8 Copper 5 Tin 5 Clay 15 Iron 2 Jade 1";
+	$item::smith[ApprenticeRobe,0] = "GnollHide 5 String 4 Quartz 1"; 
+	$item::smith[ApprenticeRobe,1] = "GnollHide 1 String 2 "; 
+	$item::smith[ApprenticeRobe,2] = "GnollHide 2 String 3 "; 
+	$item::smith[ApprenticeRobe,3] = "GnollHide 3 String 4 Quartz 1 "; 
+	$item::smith[ApprenticeRobe,4] = "GnollHide 4 String 5 Opal 1"; 
+	$item::smith[ApprenticeRobe,5] = "GnollHide 8 String 6 Jade 1";	
 	
 	$ItemType[LightRobe] = "armor";
 	$ItemSubType[LightRobe] = $BodyAccessoryType;
@@ -1672,6 +1691,7 @@ function DefineItems()
 	$PrefixExclusions[LightRobe] = ",";
 	$SuffixExclusions[LightRobe] = ",";
 	$DataBlock[LightRobe] = "armor1";
+	$SkillType[LightRobe] = $Magic;
 	$shop::BuyPrice[LightRobe] = 4000;
 	//$item::smith[LightRobe,0] = "GnollHide 5 Clay 20 Opal 1"; 
 	//$item::smith[LightRobe,1] = "GnollHide 1 Clay 5 tin 1 "; 
@@ -1689,6 +1709,7 @@ function DefineItems()
 	$PrefixExclusions[FineRobe] = ",";
 	$SuffixExclusions[FineRobe] = ",";
 	$DataBlock[FineRobe] = "armor1";
+	$SkillType[FineRobe] = $Magic;
 	$shop::BuyPrice[FineRobe] = 8000;
 	//$item::smith[LightRobe,0] = "GnollHide 5 Clay 20 Opal 1"; 
 	//$item::smith[LightRobe,1] = "GnollHide 1 Clay 5 tin 1 "; 
@@ -1706,6 +1727,7 @@ function DefineItems()
 	$PrefixExclusions[BloodRobe] = ",";
 	$SuffixExclusions[BloodRobe] = ",";
 	$DataBlock[BloodRobe] = "armor1";
+	$SkillType[BloodRobe] = $Magic;
 	$shop::BuyPrice[BloodRobe] = 20000;
 	//$item::smith[LightRobe,0] = "GnollHide 5 Clay 20 Opal 1"; 
 	//$item::smith[LightRobe,1] = "GnollHide 1 Clay 5 tin 1 "; 
@@ -1723,6 +1745,7 @@ function DefineItems()
 	$PrefixExclusions[AdvisorRobe] = ",";
 	$SuffixExclusions[AdvisorRobe] = ",";
 	$DataBlock[AdvisorRobe] = "armor1";
+	$SkillType[AdvisorRobe] = $Magic;
 	$shop::BuyPrice[AdvisorRobe] = 40000;
 	//$item::smith[LightRobe,0] = "GnollHide 5 Clay 20 Opal 1"; 
 	//$item::smith[LightRobe,1] = "GnollHide 1 Clay 5 tin 1 "; 
@@ -1740,13 +1763,14 @@ function DefineItems()
 	$PrefixExclusions[ElvenRobe] = ",";
 	$SuffixExclusions[ElvenRobe] = ",";
 	$DataBlock[ElvenRobe] = "armor1";
+	$SkillType[ElvenRobe] = $Magic;
 	$shop::BuyPrice[ElvenRobe] = 80000;
-	//$item::smith[LightRobe,0] = "GnollHide 5 Clay 20 Opal 1"; 
-	//$item::smith[LightRobe,1] = "GnollHide 1 Clay 5 tin 1 "; 
-	//$item::smith[LightRobe,2] = "GnollHide 2 Clay 5 Tin 4 Copper 4"; 
-	//$item::smith[LightRobe,3] = "GnollHide 3 Clay 8 tin 3 copper 3 Quartz 1"; 
-	//$item::smith[LightRobe,4] = "GnollHide 4 Clay 10 Tin 4 Copper 4 Iron 1 Opal 1"; 
-	//$item::smith[LightRobe,5] = "GnollHide 8 Copper 5 Tin 5 Clay 15 Iron 2 Jade 1";
+	//$item::smith[LightRobe,0] = "String 5 Clay 20 Opal 1"; 
+	//$item::smith[LightRobe,1] = "String 1 Clay 5 tin 1 "; 
+	//$item::smith[LightRobe,2] = "String 2 Clay 5 Tin 4 Copper 4"; 
+	//$item::smith[LightRobe,3] = "String 3 Clay 8 tin 3 copper 3 Quartz 1"; 
+	//$item::smith[LightRobe,4] = "String 4 Clay 10 Tin 4 Copper 4 Iron 1 Opal 1"; 
+	//$item::smith[LightRobe,5] = "String 8 Copper 5 Tin 5 Clay 15 Iron 2 Jade 1";
 	
 	$ItemType[PhensRobe] = "armor";
 	$ItemSubType[PhensRobe] = $BodyAccessoryType;
@@ -1757,13 +1781,14 @@ function DefineItems()
 	$PrefixExclusions[PhensRobe] = ",";
 	$SuffixExclusions[PhensRobe] = ",";
 	$DataBlock[PhensRobe] = "armor1";
+	$SkillType[PhensRobe] = $Magic;
 	$shop::BuyPrice[PhensRobe] = 100000;
-	//$item::smith[LightRobe,0] = "GnollHide 5 Clay 20 Opal 1"; 
-	//$item::smith[LightRobe,1] = "GnollHide 1 Clay 5 tin 1 "; 
-	//$item::smith[LightRobe,2] = "GnollHide 2 Clay 5 Tin 4 Copper 4"; 
-	//$item::smith[LightRobe,3] = "GnollHide 3 Clay 8 tin 3 copper 3 Quartz 1"; 
-	//$item::smith[LightRobe,4] = "GnollHide 4 Clay 10 Tin 4 Copper 4 Iron 1 Opal 1"; 
-	//$item::smith[LightRobe,5] = "GnollHide 8 Copper 5 Tin 5 Clay 15 Iron 2 Jade 1";
+	//$item::smith[LightRobe,0] = "String 5 Clay 20 Opal 1"; 
+	//$item::smith[LightRobe,1] = "String 1 Clay 5 tin 1 "; 
+	//$item::smith[LightRobe,2] = "String 2 Clay 5 Tin 4 Copper 4"; 
+	//$item::smith[LightRobe,3] = "String 3 Clay 8 tin 3 copper 3 Quartz 1"; 
+	//$item::smith[LightRobe,4] = "String 4 Clay 10 Tin 4 Copper 4 Iron 1 Opal 1"; 
+	//$item::smith[LightRobe,5] = "String 8 Copper 5 Tin 5 Clay 15 Iron 2 Jade 1";
 	
 	$ItemType[HolyRobe] = "armor";
 	$ItemSubType[HolyRobe] = $BodyAccessoryType;
@@ -1774,13 +1799,14 @@ function DefineItems()
 	$PrefixExclusions[HolyRobe] = ",";
 	$SuffixExclusions[HolyRobe] = ",";
 	$DataBlock[HolyRobe] = "armor1";
+	$SkillType[HolyRobe] = $Magic;
 	$shop::BuyPrice[HolyRobe] = 140000;
-	//$item::smith[LightRobe,0] = "GnollHide 5 Clay 20 Opal 1"; 
-	//$item::smith[LightRobe,1] = "GnollHide 1 Clay 5 tin 1 "; 
-	//$item::smith[LightRobe,2] = "GnollHide 2 Clay 5 Tin 4 Copper 4"; 
-	//$item::smith[LightRobe,3] = "GnollHide 3 Clay 8 tin 3 copper 3 Quartz 1"; 
-	//$item::smith[LightRobe,4] = "GnollHide 4 Clay 10 Tin 4 Copper 4 Iron 1 Opal 1"; 
-	//$item::smith[LightRobe,5] = "GnollHide 8 Copper 5 Tin 5 Clay 15 Iron 2 Jade 1";
+	//$item::smith[LightRobe,0] = "String 5 Clay 20 Opal 1"; 
+	//$item::smith[LightRobe,1] = "String 1 Clay 5 tin 1 "; 
+	//$item::smith[LightRobe,2] = "String 2 Clay 5 Tin 4 Copper 4"; 
+	//$item::smith[LightRobe,3] = "String 3 Clay 8 tin 3 copper 3 Quartz 1"; 
+	//$item::smith[LightRobe,4] = "String 4 Clay 10 Tin 4 Copper 4 Iron 1 Opal 1"; 
+	//$item::smith[LightRobe,5] = "String 8 Copper 5 Tin 5 Clay 15 Iron 2 Jade 1";
 	
 	//############################################################
 	//boots
@@ -1795,6 +1821,7 @@ function DefineItems()
 	$PrefixExclusions[LeatherBoots] = ",";
 	$SuffixExclusions[LeatherBoots] = ",";
 	$DataBlock[LeatherBoots] = "armor1";
+	$SkillType[LeatherBoots] = $SkillEndurance;
 	$shop::BuyPrice[LeatherBoots] = 5000;
 	$item::smith[LeatherBoots,0] = "GnollHide 5 Clay 20 Copper 1 Tin 1 String 2"; 
 	$item::smith[LeatherBoots,1] = "GnollHide 1 Clay 5 tin 1 String 1"; 
@@ -5839,13 +5866,27 @@ function RPGGame::InventoryListOnSelect(%game, %client, %itemid)
 		
 		%info[1] = " ";
 		%info[2] = "Item ID: " @ %itemId;
-		%info[3] = "Amount: " @ %game.getitemCount(%client, %item, %prefix, %suffix);
+        %info[3] = "Type: " @ $ItemType[%game.GetItem(%client, %itemId)];
+        %info[4] = "Base Effect: " @ $ItemBaseSpecialVar[%game.GetItem(%client, %itemId)];
+        
+        if ($SkillType[%game.GetItem(%client, %itemId)])
+        {
+            %info[5] = "Skill Type: " @ $SkillDesc[$SkillType[%game.GetItem(%client, %itemId)]];
+            %info[6] = "Skill Requirement: " @ GetWord($skillRestriction[%item], 1);
+        }
+        else
+        {
+            %info[5] = " ";
+            %info[6] = " ";
+        }
+        
+		%info[7] = "Amount: " @ %game.getitemCount(%client, %item, %prefix, %suffix);
 		if(%client.data.equipped[%itemid])
-		%info[4] = "Equipped: Yes";
+		%info[8] = "Equipped: Yes";
 		else
-		%info[4] = "Equipped: No";
+		%info[8] = "Equipped: No";
 
-		commandToClient(%client, 'InventoryListOnSelect', %info[1], %info[2], %info[3], %info[4]);
+		commandToClient(%client, 'InventoryListOnSelect', %info[1], %info[2], %info[3], %info[4], %info[5], %info[6], %info[7], %info[8]);
 	}
 }
 function RPGGame::ShapeBasecycleWeapon(%game, %this, %data)

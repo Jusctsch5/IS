@@ -573,6 +573,34 @@ $spelldata[AdvGuildTeleport, Cost] = 10;
 $spelldata[AdvGuildTeleport, Function] = "DoSpellGuildTeleportLOS";
 $spelldata[AdvGuildTeleport, Skill] = $Skill::NeutralCasting;
 
+$spelldata[Flow, Image] = HealAuraEmitter2;
+$spelldata[Flow, DamageMod] = "";
+$spelldata[Flow, NumEffect] = "5";
+$spelldata[Flow, Test] = 1;
+$spelldata[Flow, Delay] = 1500;
+$spelldata[Flow, Element] = "Generic";
+$spelldata[Flow, RecoveryTime] = 4000;
+$spelldata[Flow, Type] = Emitter;
+$spelldata[Flow, cost] = 10; // 10
+$spelldata[Flow, Duration] = 60000;
+$spelldata[Flow, Special] = "Flow";
+$spelldata[Flow, Function] = "DoFlowSpellCast";
+$spelldata[Flow, Skill] = $Skill::NeutralCasting;
+
+$spelldata[Bound, Image] = HealAuraEmitter2;
+$spelldata[Bound, DamageMod] = "";
+$spelldata[Bound, NumEffect] = "1300";
+$spelldata[Bound, Test] = 1;
+$spelldata[Bound, Delay] = 1500;
+$spelldata[Bound, Element] = "Generic";
+$spelldata[Bound, RecoveryTime] = 4000;
+$spelldata[Bound, Type] = Emitter;
+$spelldata[Bound, cost] = 15; // 15
+$spelldata[Bound, Duration] = 60000;
+$spelldata[Bound, Special] = "Bound";
+$spelldata[Bound, Function] = "DoBoundSpellCast";
+$spelldata[Bound, Skill] = $Skill::NeutralCasting;
+
 //Element to stat bonus declaration:
 $Spell::ElementResistance[Fire] = 13;//Fire Resistance format x where x is a number.
 $Spell::ElementResistance[Water] = 14;
@@ -1625,4 +1653,96 @@ function DoSpellGuildTeleportLOS(%client, %spell, %sdata, %params)
 		MessageClient(%client, 'Teleport Fail', "No such destination, or your guild does not own that territory.");
 	}	
 
+}
+
+function DoFlowSpellCast(%client, %spell, %sdata, %params)
+{
+    // Make sure an existing flow isn't active.
+    if (%client.player.getDataBlock().flowActive == true)
+    {
+        restoreMANA(%client, $spelldata[%sdata, Cost]); 
+        return;
+    }
+    
+    %client.player.getDataBlock().flowActive = true;
+    
+    // Create the 'cast spell' image on the player
+    %pos = %client.player.getPosition();
+    %em = createEmitter(%pos, $spelldata[%sdata, Image], "0 0 0");
+    schedule(1000, 0, "removeExpo", %em);
+    
+    // Calculate the increase in speed.
+    %client.flowIncrease = $spelldata[%sdata, numEffect];
+    echo("Casting Flow, increasing speed by" SPC %client.flowIncrease SPC " from " SPC %client.player.getDataBlock().maxForwardSpeed);
+    %increase = %client.flowIncrease;
+    %client.player.getDataBlock().maxForwardSpeed += %increase;
+    %client.player.getDataBlock().maxBackwardSpeed += %increase;
+    %client.player.getDataBlock().maxSideSpeed += %increase;
+    %client.player.getDataBlock().maxUnderwaterForwardSpeed += %increase;
+    %client.player.getDataBlock().maxUnderwaterBackwardSpeed += %increase;
+    %client.player.getDataBlock().maxUnderwaterSideSpeed += %increase;
+    %client.player.getDataBlock().minImpactSpeed += %increase;
+    
+    // Set end of skill to terminate bonuses, want to close it slightly before.
+    %duration = $spelldata[%sdata, duration] - (1 * 1000);
+    schedule(%duration, %client, "EndFlow", %client);
+}
+function EndFlow(%client)
+{
+    if (%client.player.getDataBlock().flowActive == true)
+    {
+        echo("Flow ending, decreasing speed by" SPC %client.flowIncrease SPC " from " SPC %client.player.getDataBlock().maxForwardSpeed);
+        
+        %decrease = 0 - %client.flowIncrease;
+        %client.player.getDataBlock().maxForwardSpeed += %decrease;
+        %client.player.getDataBlock().maxBackwardSpeed += %decrease;
+        %client.player.getDataBlock().maxSideSpeed += %decrease;
+        %client.player.getDataBlock().maxUnderwaterForwardSpeed += %decrease;
+        %client.player.getDataBlock().maxUnderwaterBackwardSpeed += %decrease;
+        %client.player.getDataBlock().maxUnderwaterSideSpeed += %decrease;
+        %client.player.getDataBlock().minImpactSpeed += %decrease;
+        %client.player.getDataBlock().flowActive = false;
+    }
+}
+
+// For casting Bound
+function DoBoundSpellCast(%client, %spell, %sdata, %params)
+{
+    // Make sure an existing Bound isn't active.
+    if (%client.player.getDataBlock().BoundActive == true)
+    {
+        restoreMANA(%client, $spelldata[%sdata, Cost]);
+        return;
+    }
+  
+    %client.player.getDataBlock().BoundActive = true;
+  
+    // Create the 'cast spell' image on the player
+    %pos = %client.player.getPosition();
+    %em = createEmitter(%pos, $spelldata[%sdata, Image], "0 0 0");
+    schedule(1000, 0, "removeExpo", %em);
+    
+    // Calculate the increase in stat.
+    %client.BoundIncrease = $spelldata[%sdata, numEffect];
+    echo("Casting Bound, increasing jumping proficency by" SPC %client.BoundIncrease);
+    %increase = %client.BoundIncrease;
+    %client.player.getDataBlock().jumpForce += %increase;
+    %client.player.getDataBlock().minImpactSpeed += %increase;
+    
+    // Set end of skill to terminate bonuses, want to close it slightly before.
+    %duration = $spelldata[%sdata, duration] - (1 * 1000);
+    schedule(%duration, %client, "EndBound", %client);
+}
+
+function EndBound(%client)
+{
+    if (%client.player.getDataBlock().BoundActive == true)
+    {
+        echo("Bound ending, decreasing jumping proficency by" SPC %client.BoundIncrease SPC " from " SPC %client.player.getDataBlock().jumpForce);
+      
+        %decrease = 0 - %client.BoundIncrease;
+        %client.player.getDataBlock().jumpForce += %decrease;
+        %client.player.getDataBlock().minImpactSpeed += %decrease;
+        %client.player.getDataBlock().BoundActive = false;
+    }
 }

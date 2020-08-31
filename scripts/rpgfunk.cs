@@ -1390,6 +1390,7 @@ function RPGGame::GiveDefaults(%game, %client)
 
 	AddToInventory(%client, 1, "PickAxe", 3, 1, false);//normal pickaxe
 	AddToInventory(%client, 3, "BluePotion", 3, 1, false);
+    AddToInventory(%client, 1, "Club", 3, 1, false);//club
 	AddToInventory(%client, 2, "CrystalBluePotion", 3, 1, false);
 	storeData(%client, "RACE", %client.sex @ "Human");
 	storeData(%client, "COINS", $initcoins);
