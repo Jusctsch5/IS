@@ -1,0 +1,6 @@
+**/*.dso
+.vs
+.vscode
+characters
+lighting
+prefs
