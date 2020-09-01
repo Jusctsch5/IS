@@ -202,7 +202,7 @@ $SkillMultiplier[Cleric, $Skill::Haggling] = 1.0;
 $SkillMultiplier[Cleric, $Skill::Cleaving] = 0.5;
 $SkillMultiplier[Cleric, $Skill::IgniteArrow] = 0.4;
 $SkillMultiplier[Cleric, $Skill::Focus] = 1.5;
-$HPPerLvl[Cleric] = 1;
+$HPPerLvl[Cleric] = 6;
 $EXPmultiplier[Cleric] = 0.85;
 
 //--------------
@@ -238,7 +238,7 @@ $SkillMultiplier[Druid, $Skill::Haggling] = 1.3;
 $SkillMultiplier[Druid, $Skill::Cleaving] = 1.0;
 $SkillMultiplier[Druid, $Skill::IgniteArrow] = 0.5;
 $SkillMultiplier[Druid, $Skill::Focus] = 1.0;
-$HPPerLvl[Druid] = 2;
+$HPPerLvl[Druid] = 6;
 $EXPmultiplier[Druid] = 0.8;
 
 //--------------
@@ -274,7 +274,7 @@ $SkillMultiplier[Thief, $Skill::Haggling] = 1.5;
 $SkillMultiplier[Thief, $Skill::Cleaving] = 0.1;
 $SkillMultiplier[Thief, $Skill::IgniteArrow] = 0.3;
 $SkillMultiplier[Thief, $Skill::Focus] = 0.1;
-$HPPerLvl[Thief] = 4;
+$HPPerLvl[Thief] = 6;
 $EXPmultiplier[Thief] = 0.8;
 
 //--------------
@@ -285,17 +285,17 @@ $EXPmultiplier[Thief] = 0.8;
 //Primary Skill: Stealing
 //Secondary Skill: Archery
 
-$SkillMultiplier[Bard, $Skill::Slashing] = 1.3;
+$SkillMultiplier[Bard, $Skill::Slashing] = 1.2;
 $SkillMultiplier[Bard, $Skill::Piercing] = 1.5;
-$SkillMultiplier[Bard, $Skill::Bludgeoning] = 1.3;
+$SkillMultiplier[Bard, $Skill::Bludgeoning] = 1.2;
 $SkillMultiplier[Bard, $Skill::Dodging] = 2.0;
 $SkillMultiplier[Bard, $Skill::WeightCapacity] = 0.8;
 $SkillMultiplier[Bard, $Skill::Bashing] = 0.2;
 $SkillMultiplier[Bard, $Skill::Stealing] = 2.0;
 $SkillMultiplier[Bard, $Skill::Hiding] = 1.8;
 $SkillMultiplier[Bard, $Skill::Backstabbing] = 1.8;
-$SkillMultiplier[Bard, $Skill::OffensiveCasting] = 0.3;
-$SkillMultiplier[Bard, $Skill::DefensiveCasting] = 0.3;
+$SkillMultiplier[Bard, $Skill::OffensiveCasting] = 0.4;
+$SkillMultiplier[Bard, $Skill::DefensiveCasting] = 0.4;
 $SkillMultiplier[Bard, $Skill::NeutralCasting] = 0.5;
 $SkillMultiplier[Bard, $Skill::SpellResistance] = 0.5;
 $SkillMultiplier[Bard, $Skill::Healing] = 2.0;
@@ -309,8 +309,8 @@ $SkillMultiplier[Bard, $Skill::Haggling] = 2.0;
 $SkillMultiplier[Bard, $Skill::Cleaving] = 0.5;
 $SkillMultiplier[Bard, $Skill::IgniteArrow] = 0.3;
 $SkillMultiplier[Bard, $Skill::Focus] = 0.9;
-$HPPerLvl[Bard] = 2;
-$EXPmultiplier[Bard] = 0.8;
+$HPPerLvl[Bard] = 6;
+$EXPmultiplier[Bard] = 1.0;
 
 //--------------
 // Fighter
@@ -417,7 +417,7 @@ $SkillMultiplier[Ranger, $Skill::Haggling] = 0.7;
 $SkillMultiplier[Ranger, $Skill::Cleaving] = 0.5;
 $SkillMultiplier[Ranger, $Skill::IgniteArrow] = 1.8;
 $SkillMultiplier[Ranger, $Skill::Focus] = 0.1;
-$HPPerLvl[Ranger] = 7;
+$HPPerLvl[Ranger] = 8;
 $EXPmultiplier[Ranger] = 0.95;
 
 //--------------
@@ -453,7 +453,7 @@ $SkillMultiplier[Mage, $Skill::Haggling] = 1.0;
 $SkillMultiplier[Mage, $Skill::Cleaving] = 0.1;
 $SkillMultiplier[Mage, $Skill::IgniteArrow] = 1.0;
 $SkillMultiplier[Mage, $Skill::Focus] = 2.0;
-$HPPerLvl[Mage] = 2;
+$HPPerLvl[Mage] = 4;
 $EXPmultiplier[Mage] = 1.0;
 
 //--------------
@@ -489,8 +489,45 @@ $SkillMultiplier[Conjurer, $Skill::Haggling] = 1.3;
 $SkillMultiplier[Conjurer, $Skill::Cleaving] = 0.8;
 $SkillMultiplier[Conjurer, $Skill::IgniteArrow] = 0.5;
 $SkillMultiplier[Conjurer, $Skill::Focus] = 1.5;
-$HPPerLvl[Conjurer] = 4;
+$HPPerLvl[Conjurer] = 6;
 $EXPmultiplier[Conjurer] = 0.95;
+
+
+//--------------
+// Battlemage
+//--------------
+// Battlemage are decent with weapons, armor, and offensive magic, but are below average
+// in everything else
+
+//Primary Skill: Offensive Casting
+//Secondary Skills: Slashing
+
+$SkillMultiplier[Battlemage, $Skill::Slashing] = 1.4;
+$SkillMultiplier[Battlemage, $Skill::Piercing] = 0.3;
+$SkillMultiplier[Battlemage, $Skill::Bludgeoning] = 0.4;
+$SkillMultiplier[Battlemage, $Skill::Dodging] = 1.3;
+$SkillMultiplier[Battlemage, $Skill::WeightCapacity] = 1.2;
+$SkillMultiplier[Battlemage, $Skill::Bashing] = 0.1;
+$SkillMultiplier[Battlemage, $Skill::Stealing] = 0.1;
+$SkillMultiplier[Battlemage, $Skill::Hiding] = 0.1;
+$SkillMultiplier[Battlemage, $Skill::Backstabbing] = 0.1;
+$SkillMultiplier[Battlemage, $Skill::OffensiveCasting] = 2.0;
+$SkillMultiplier[Battlemage, $Skill::DefensiveCasting] = 0.2;
+$SkillMultiplier[Battlemage, $Skill::NeutralCasting] = 0.4;
+$SkillMultiplier[Battlemage, $Skill::SpellResistance] = 0.8;
+$SkillMultiplier[Battlemage, $Skill::Healing] = 0.8;
+$SkillMultiplier[Battlemage, $Skill::Archery] = 0.2;
+$SkillMultiplier[Battlemage, $Skill::Endurance] = 1.2;
+$SkillMultiplier[Battlemage, $Skill::Mining] = 0.9;
+$SkillMultiplier[Battlemage, $Skill::Speech] = 0.5;
+$SkillMultiplier[Battlemage, $Skill::SenseHeading] = 0.5;
+$SkillMultiplier[Battlemage, $Skill::Energy] = 1.3;
+$SkillMultiplier[Battlemage, $Skill::Haggling] = 1.0;
+$SkillMultiplier[Battlemage, $Skill::Cleaving] = 0.9;
+$SkillMultiplier[Battlemage, $Skill::IgniteArrow] = 0.5;
+$SkillMultiplier[Battlemage, $Skill::Focus] = 1.2;
+$HPPerLvl[Battlemage] = 6;
+$EXPmultiplier[Battlemage] = 0.95;
 
 //######################################################################################
 // Skill Restriction tables

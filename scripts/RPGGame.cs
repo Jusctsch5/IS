@@ -1838,10 +1838,10 @@ function RPGGame::onClientKilled(%game, %clVictim, %clKiller, %damageType, %impl
 	if($debugMode == true) echo("RPGGame::onClientKilled(" @ %game @ "," SPC %clVictim @ "," SPC %clKiller @ "," SPC %damageType @ "," SPC %implement @ "," SPC %damageLocation  @ ");");
 	%plVictim = %clVictim.player;
 	%plKiller = %clKiller.player;
-        %clKiller.tkills++;
-        %clVictim.tkills++;
-        if($rules $= "dm")
-        {
+	%clKiller.tkills++;
+	%clVictim.tkills++;
+	if($rules $= "dm")
+	{
 		%ditem = fetchData(%clVictim, "weaponInHand");
 		%clVictim.player.throw(%ditem);
 	}
@@ -1899,103 +1899,111 @@ function RPGGame::onClientKilled(%game, %clVictim, %clKiller, %damageType, %impl
         if(%clVictim.isBoss || %clVictim.bossName !$= "") {
            BossComplete(%clVictim, %plVictim.getPosition());
         }
-	}
-	//ok now get the players lck.. if player died without any lck, drop everything, thats the shaft!
-	%lootfl = fetchdata(%clVictim, "noDropLootbagFlag");
-	if(inArena(%clVictim))
-	%lootfl = 1;
-	if(%guildkilled)
-	%lootfl = 2;
-	%lck = fetchdata(%clVictim, "LCK");
-	if(%lck < 0 )
-	%timer = 60;
-	else
-	%timer = 600;
-	%ai = %clVictim.isaicontrolled();
-	%loot = "";
-	%inv = fetchData(%clVictim, "inventory");
+	} // end AiControlled
 
-	for(%i = 0; (%itemstr = GetWord(%inv, %i)) !$= "" && %lootfl $= ""; %i++)
+	// J - Dropping loot is pointlessly punishing the character.
+	// This has been
+
+	//ok now get the players lck.. if player died without any lck, drop everything, thats the shaft!
+	if(%clVictim.isAiControlled())
 	{
-		
-		
-		%itemstr = strreplace(%itemstr, "%", " ");
-		%item = GetWord(%itemstr, 1);
-		%prefix = GetWord(%itemstr, 0);
-		%suffix = GetWord(%itemstr, 2);
-		%num = %game.getItemCount(%clvictim, %item, %prefix, %suffix);
-		%fullitem = %game.GetFullItemName(%prefix, %item, %suffix);
-		%itemid = %clvictim.data.count[strreplace(%fullitem, " ", "x")];
-		%type = $itemType[%item];
-		
-		
-		if(%type $= "weapon" && %lck >= 0 && !%ai )
+
+		%lootfl = fetchdata(%clVictim, "noDropLootbagFlag");
+		if(inArena(%clVictim))
+		%lootfl = 1;
+		if(%guildkilled)
+		%lootfl = 2;
+		%lck = fetchdata(%clVictim, "LCK");
+		if(%lck < 0 )
+		%timer = 60;
+		else
+		%timer = 600;
+		%ai = %clVictim.isaicontrolled();
+		%loot = "";
+		%inv = fetchData(%clVictim, "inventory");
+
+		for(%i = 0; (%itemstr = GetWord(%inv, %i)) !$= "" && %lootfl $= ""; %i++)
 		{
-			if(%clvictim.data.equipped[%itemid] )
+			
+			
+			%itemstr = strreplace(%itemstr, "%", " ");
+			%item = GetWord(%itemstr, 1);
+			%prefix = GetWord(%itemstr, 0);
+			%suffix = GetWord(%itemstr, 2);
+			%num = %game.getItemCount(%clvictim, %item, %prefix, %suffix);
+			%fullitem = %game.GetFullItemName(%prefix, %item, %suffix);
+			%itemid = %clvictim.data.count[strreplace(%fullitem, " ", "x")];
+			%type = $itemType[%item];
+			
+			
+			if(%type $= "weapon" && %lck >= 0 && !%ai )
 			{
-				%game.InventoryUse(%clvictim, %itemid);
-				%game.RemoveFromInventory(%clVictim, 1, %item, %prefix, %suffix);
-				%loot = %loot @ %prefix @ "%" @ %item @ "%" @ %suffix @ "%" @ 1 @ " ";
+				if(%clvictim.data.equipped[%itemid] )
+				{
+					%game.InventoryUse(%clvictim, %itemid);
+					%game.RemoveFromInventory(%clVictim, 1, %item, %prefix, %suffix);
+					%loot = %loot @ %prefix @ "%" @ %item @ "%" @ %suffix @ "%" @ 1 @ " ";
+				}
+			}
+			else if(%type $= "Armor" &&  %lck >= 0 && !%ai )
+			{
+				if(%clvictim.data.equipped[%itemid] )
+				{
+					%game.InventoryUse(%clvictim, %itemid);
+					%game.RemoveFromInventory(%clVictim, 1, %item, %prefix, %suffix);
+					%loot = %loot @ %prefix @ "%" @ %item @ "%" @ %suffix @ "%" @ 1 @ " ";
+				}		
+			
+			}
+			else
+			{
+				if(%lck < 0 || %ai)
+				{
+					if(%clvictim.data.equipped[%itemid])
+						%game.InventoryUse(%client, %itemid);//clean up
+					%game.RemoveFromInventory(%clVictim, %num, %item, %prefix, %suffix);
+					%loot = %loot @ %prefix @ "%" @ %item @ "%" @ %suffix @ "%" @ %num @ " ";
+					
+				}
 			}
 		}
-		else if(%type $= "Armor" &&  %lck >= 0 && !%ai )
-		{
-			if(%clvictim.data.equipped[%itemid] )
-			{
-				%game.InventoryUse(%clvictim, %itemid);
-				%game.RemoveFromInventory(%clVictim, 1, %item, %prefix, %suffix);
-				%loot = %loot @ %prefix @ "%" @ %item @ "%" @ %suffix @ "%" @ 1 @ " ";
-			}		
 		
-		}
-		else
+		if(%lootfl $= "")
 		{
-			if(%lck < 0 || %ai)
+			%coins = FetchData(%clVictim, "COINS")+1-1;
+			StoreData(%clVictim, "COINS", 0);
+		}
+		else if(%lootfl == 2)
+		{
+			%coins = Fetchdata(%clVictim, "COINS")+1-1;
+			%bank = FetchData(%clVictim, "BANK")+1-1;
+			%asset = %coins+%bank;
+			%charge = mfloor(%asset/10);
+			if(%charge > %coins)
 			{
-				if(%clvictim.data.equipped[%itemid])
-					%game.InventoryUse(%client, %itemid);//clean up
-				%game.RemoveFromInventory(%clVictim, %num, %item, %prefix, %suffix);
-				%loot = %loot @ %prefix @ "%" @ %item @ "%" @ %suffix @ "%" @ %num @ " ";
+				%bank = %bank - (%charge - %coins);
 				
 			}
-		}
-	}
-	
-	if(%lootfl $= "")
-	{
-		%coins = FetchData(%clVictim, "COINS")+1-1;
-		StoreData(%clVictim, "COINS", 0);
-	}
-	else if(%lootfl == 2)
-	{
-		%coins = Fetchdata(%clVictim, "COINS")+1-1;
-		%bank = FetchData(%clVictim, "BANK")+1-1;
-		%asset = %coins+%bank;
-		%charge = mfloor(%asset/10);
-		if(%charge > %coins)
-		{
-			%bank = %bank - (%charge - %coins);
+			else
+			%charge = %coins;
 			
+			storedata(%clvictim, "COINS", 0);
+			storedata(%clVictim, "BANK", %bank);
+			%coins = %charge;
+			%asset = "";
+			%bank = "";
+			%charge = "";
+			%timer = 0;
 		}
-		else
-		%charge = %coins;
-		
-		storedata(%clvictim, "COINS", 0);
-		storedata(%clVictim, "BANK", %bank);
-		%coins = %charge;
-		%asset = "";
-		%bank = "";
-		%charge = "";
-		%timer = 0;
-	}
 
-	if(%lootfl $= "" || %lootfl == 2) {
-    //Phantom139: Don't drop loot if we're disconnecting due to de-spawn
-       if(!%clVictim.despawning) {
-          %Game.TossLootBag(%clVictim, %loot,%coins,  %timer);
-       }
-    }
-
+		if(%lootfl $= "" || %lootfl == 2) {
+		//Phantom139: Don't drop loot if we're disconnecting due to de-spawn
+		if(!%clVictim.despawning) {
+			%Game.TossLootBag(%clVictim, %loot,%coins,  %timer);
+		}
+		}
+	} // End if AiControlled
+	
 	storeData(%clVictim, "noDropLootbagFlag", "");
 
 	storeData(%clVictim, "SpellCastStep", "");

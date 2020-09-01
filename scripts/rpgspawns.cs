@@ -101,7 +101,7 @@ function RPGGame::SpawnLoop(%game, %index) {
         }
     }
     //always call back the spawn loop, in case a spot is freed up for a helper to spawn
-	%game.schedule(%delay * 1000, "SpawnLoop", %index);
+	%game.schedule(%delay * 10000, "SpawnLoop", %index);
 }
 
 function RPGGame::SpawnBot(%game, %index, %si) {

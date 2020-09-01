@@ -73,6 +73,7 @@ Flare 5
 SignalFlare [color] 20
 AdminSignalFlare [color] (ADMIN 3)
 guildteleport [zone name (see below)] 20
+flow 60
 teleport [town or dungeon] 60
 transport [area name (See below)] 200
 masstransport [area name (see below)] 650

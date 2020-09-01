@@ -485,7 +485,7 @@ function DefineItems()
 	$item::smith[Knife,3] = "copper 1"; 
 	$item::smith[Knife,4] = "tin 1 copper 1"; 
 	$item::smith[Knife,5] = "tin 1 copper 1 iron 1";
-
+	
 	$ItemType[PickAxe] = "weapon";
 	$ItemSubType[PickAxe] = $SwordAccessoryType;
 	$ItemDesc[PickAxe] = "Pick Axe";
@@ -654,14 +654,14 @@ function DefineItems()
 	$item::smith[Katar,4] = "iron 11 coal 9 Mithril 6 quartz 1 Diere 2 Silver 2"; 
 	$item::smith[Katar,5] = "iron 15 coal 12 Mithril 12 opal 1 Diere 3 Silver 4";
 //slashing
-//hatchet		->		1
-//WarAxe		->		4
+//hatchet	        ->		1
+//WarAxe		    ->		4
 //broadsword		->		7
 //longsword 		->		10
 //IceBroadsword		->		20
 //FireBroadSword	->		20
 //WaterBroadSword	->		20
-//BattleAxe		->		25
+//BattleAxe		    ->		25
 //BastardSword		->		35
 
 	$ItemType[Hatchet] = "weapon";
