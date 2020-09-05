@@ -295,12 +295,12 @@ function DefineLoadouts()
         //RACE [racename] LVL [XrY] CLASS [classname]  ex RACE Orc LVL 1r1 CLASS fighter
 // Humans
 	$EnemyProfile[Conscript] = "LVL 80r100 CLASS Fighter COINS 20r35";
-    $EnemyProfile[Dummy] = "LVL 1r1 CLASS Fighter";
+    $EnemyProfile[Soulless] = "LVL 1r1 CLASS Fighter";
 // Fish
 	$EnemyProfile[Fish] = "LVL 1r1 CLASS Fighter";
 // Goblins
-	$EnemyProfile[Runt] = "LVL 1r1 CLASS Fighter COINS 1r1";
-	$EnemyProfile[Thief] = "LVL 2r3 CLASS Fighter COINS 1r3";
+	$EnemyProfile[Runt] = "LVL 1r1 CLASS Fighter COINS 1r4";
+	$EnemyProfile[Thief] = "LVL 2r3 CLASS Fighter COINS 1r5";
 	$EnemyProfile[Raider] = "LVL 3r5 CLASS Fighter COINS 5r15";
 	$EnemyProfile[Wizard] = "LVL 3r6 CLASS Mage COINS 30r40";
 // Gnolls
@@ -309,7 +309,7 @@ function DefineLoadouts()
 	$EnemyProfile[Hunter] = "LVL 10r15 CLASS Ranger COINS 20r30";
 	$EnemyProfile[Shaman] = "LVL 10r15 CLASS Mage COINS 20r30";
 // Elemental
-        $EnemyProfile[Lightning] = "LVL 50r60 Class Fighter COINS 150r200";
+    $EnemyProfile[Lightning] = "LVL 50r60 Class Fighter COINS 150r200";
 // Orcs
 	$EnemyProfile[Berserker] = "LVL 17r23 Class Fighter COINS 13r25";
 	$EnemyProfile[Ravager] = "LVL 20r28 Class Fighter COINS 13r25";
@@ -377,7 +377,7 @@ function DefineLoadouts()
     $aiRace[Piranha]    = "EvilHuman";
     $aiRace[Torpedo]    = "EvilHuman";
     $aiRace[Laviathena] = "EvilHuman";
-    $aiRace[Dummy]      = "EvilHuman";
+    $aiRace[Soulless]      = "EvilHuman";
     $aiRace[Navegus]    = "EvilHuman";
     $aiRace[Twister]    = "EvilHuman";
     $aiRace[Cyclone]    = "EvilHuman";
@@ -456,7 +456,7 @@ function DefineLoadouts()
 	$SpawnIndex[33] 	= "Thrasher";
 	$SpawnIndex[34]		= "Skeleton";
 	$SpawnIndex[35]		= "Necromancer";
-    $SpawnIndex[36]     = "Dummy";
+    $SpawnIndex[36]     = "Soulless";
     
     $SpawnIndex[37]     = "Twister";
     $SpawnIndex[38]     = "Cyclone";
@@ -489,7 +489,8 @@ function DefineLoadouts()
 	//attack behaviors
 	//0 is default
 	//1 is only attack enemies in its own zone, or enemies that hit him
-    $attb[Dummy]        = 2;
+	//2 does nothing
+    $attb[Soulless]     = 2;
     $attb[Seakeeper]    = 1;
     $attb[Eel]          = 1;
     $attb[Piranha]      = 1;
@@ -588,7 +589,7 @@ function DefineLoadouts()
 	$Bot::Magic[Skeleton]	= 0;
 	$Bot::Magic[Necromancer]= 1;
     $Bot::spellList[Necromancer] = "bolt thorn fireball icespike firebomb watersurge icestorm spikes melt ironfist cloud powercloud";
-    $Bot::Magic[Dummy] = 0;
+    $Bot::Magic[Soulless] = 0;
     $Bot::Magic[Twister] = 0;
     $Bot::Magic[Cyclone] = 1;
     $Bot::spellList[Cyclone] = "icespike watersurge icestorm ironfist cloud powercloud snowstorm";
@@ -757,7 +758,7 @@ function DefineLoadouts()
 	$EnemyWeapons[35]	= "Sling 3 1 Dagger 3 1";
 	$EnemyArmor[35]		= "";
 	$EnemyItems[35]		= "SmallRock 35r40 1r1 Diamond 1r1 1r3000 coal 1r2 1r1";
-    //Dummy
+    //Soulless
 	$EnemyWeapons[36]	= "";
 	$EnemyArmor[36]		= "";
     $EnemyItems[36]		= "";
@@ -982,7 +983,7 @@ function DefineTownBots()
     spawnquestbot("-339.026 922.244 51.673 0 0 1 3.61714", 1, "MaleHuman", "SnowblindInvestigation2", "Navegus", "SnowblindQuest1");
 
 	//Phantom139: New Bots
-    $AITalkMessage["Warrior Andrew", 0] = "Hello %n, This is the training zone. I highly recommend you prepare yourself before heading off into the world";
+    $AITalkMessage["Warrior Andrew", 0] = "Hello %n, This is the training zone. I highly recommend you prepare yourself before heading off into the world, lest you end up like these poor souls.";
     spawntownbot("-430.935 822.297 51.514 0 0 1 0.305074", 1, "BaseNPC", "MaleHuman", 0, "Warrior Andrew");
     $AITalkMessage["Warrior Andrew", 1] = "Hello %n, I was trying to get into Myrklure, but the water is so tough to navigate through, Perhaps this is the plan of the Water Guardian to test potential challengers. Be cautious if you proceed...";
     spawntownbot("-183.481 1455.11 50.9808 0 0 0.999999 0.334985", 1, "BaseNPC", "MaleHuman", 1, "Warrior Andrew");

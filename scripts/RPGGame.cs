@@ -758,7 +758,7 @@ function RPGGame::onClientDamaged(%game, %clVictim, %clAttacker, %damageType, %s
 						%bash = true;
 						%eye = %clAttacker.player.getEyeVector();
 						%vec = vectorScale(%eye, %clAttacker.data.PlayerSkill[$Skill::Bashing]/5);
-						%vec = VectorAdd(%vec, "0 0 15");
+						%vec = VectorAdd(%vec, "5 5 15");
 						refreshMANA(%clAttacker, 1);
 					}
 					else
@@ -2003,7 +2003,7 @@ function RPGGame::onClientKilled(%game, %clVictim, %clKiller, %damageType, %impl
 		}
 		}
 	} // End if AiControlled
-	
+
 	storeData(%clVictim, "noDropLootbagFlag", "");
 
 	storeData(%clVictim, "SpellCastStep", "");

@@ -741,7 +741,13 @@ function RPGchat(%client, %team, %message, %senderName)
 					%msg = WhatIs(%item);
 					
 					if(%msg !$= "")
-					sendRPGbottomprint(%TrueClientId, mfloor(strlen(%msg) / 10)+1, Getword(%msg, 0), getwords(%msg, 1));
+					{
+						sendRPGbottomprint(%TrueClientId, mfloor(strlen(%msg) / 10)+1, Getword(%msg, 0), getwords(%msg, 1));
+					}
+					else
+					{
+						messageClient(%TrueClientId, 'RPGchatCallback', "Invalid item:"@%item);
+					}
 				}
 				return;
 
@@ -1065,7 +1071,6 @@ function RPGchat(%client, %team, %message, %senderName)
 				return;
 
 			case "#sleep":
-				//return; //BROKEN will be fixed later
 				if(fetchData(%TrueClientId, "InSleepZone") == true && %TrueClientId.sleepMode $= "" && !IsDead(%TrueClientId))
 					%flag = true;
 				echo(fetchData(%trueclientid, "InSleepZone"));
@@ -1423,7 +1428,6 @@ function RPGchat(%client, %team, %message, %senderName)
 				else
 				{
 					messageClient(%TrueClientId, 'RPGchatCallback', "You can't ignite arrows because you lack the necessary skills.");
-					//UseSkill(%TrueClientId, $SkillBashing, false, true);
 				}
 
 				return;
@@ -5655,6 +5659,10 @@ function RPGchat(%client, %team, %message, %senderName)
 						%class = "Cleric";
 					else if(stricmp(%class, "druid") $= 0)
 						%class = "Druid";
+					else if(stricmp(%class, "conjurer") $= 0)
+						%class = "Conjurer";
+					else if(stricmp(%class, "battlemage") $= 0)
+						%class = "Battlemage";
 
 					if(%defaults !$= "")
 					{
@@ -5677,7 +5685,7 @@ function RPGchat(%client, %team, %message, %senderName)
 					}
 					else
 					{
-						AI::sayLater(%TrueClientId, %closestId, "Invalid class. Use any of the following: mage fighter paladin ranger thief bard cleric druid.", true);
+						AI::sayLater(%TrueClientId, %closestId, "Invalid class. Use any of the following: fighter paladin ranger thief bard cleric druid mage conjurer battlemage.", true);
 						$state[%closestId, %TrueClientId] = "";
 					}
 				}

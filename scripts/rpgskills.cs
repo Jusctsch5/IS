@@ -676,8 +676,8 @@ $SkillRestriction["#group"] = $Skill::Speech @ " 5";
 $SkillRestriction["#guild"] = $Skill::Speech @ " 10";
 
 $SkillRestriction["#steal"] = $Skill::Stealing @ " 15";
-$SkillRestriction["#pickpocket"] = $Skill::Stealing @ " 270";
-$SkillRestriction["#mug"] = $Skill::Stealing @ " 620";
+$SkillRestriction["#pickpocket"] = $Skill::Stealing @ " 50";
+$SkillRestriction["#mug"] = $Skill::Stealing @ " 120";
 
 $SkillRestriction["#hide"] = $Skill::Hiding @ " 15";
 
@@ -691,8 +691,8 @@ $SkillRestriction["#stun"] = $Skill::Bashing @ " 170";
 $SkillRestriction["#compass"] = $Skill::SenseHeading @ " 3";
 $SkillRestriction["#track"] = $Skill::SenseHeading @ " 15";
 $SkillRestriction["#advcompass"] = $Skill::SenseHeading @ " 20";
-$SkillRestriction["#zonelist"] = $Skill::SenseHeading @ " 45";
-$SkillRestriction["#trackpack"] = $Skill::SenseHeading @ " 85";
+$SkillRestriction["#zonelist"] = $Skill::SenseHeading @ " 30";
+$SkillRestriction["#trackpack"] = $Skill::SenseHeading @ " 45";
 
 // Spells
 $SkillRestriction[Bolt] = $Skill::OffensiveCasting @ " 5";

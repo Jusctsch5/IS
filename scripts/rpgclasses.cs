@@ -26,7 +26,7 @@ $class[2, 1] = "Ranger";
 $class[2, 2] = "Paladin";
 $class[3, 0] = "Mage";
 $class[3, 1] = "Conjurer";
-$class[3, 2] = "War Mage";
+$class[3, 2] = "Battlemage";
 
 
 function getFinalCLASS(%client)

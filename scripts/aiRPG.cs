@@ -327,7 +327,7 @@ function AIRPGAttackTask::monitor(%task, %client)
 	%player.attackThread = "";
 
 	if(fetchdata(%client, "attb") == 2) {
-       //SPECIAL: Dummy, do not attack or do anything!
+       //SPECIAL: Soulless, do not attack or do anything!
        return;
     }
 		
