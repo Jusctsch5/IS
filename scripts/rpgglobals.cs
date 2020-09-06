@@ -1,5 +1,5 @@
 if($initlck $= "") $initlck = 8;
-if($SPgainedPerLevel $= "") $SPgainedPerLevel = 10;
+if($SPgainedPerLevel $= "") $SPgainedPerLevel = 15;
 if($initSPcredits $= "") $initSPcredits = 60;
 if($autoStartupSP $= "") $autoStartupSP = 1;	//for each skill
 if($initbankcoins $= "") $initbankcoins = 0;
@@ -21,7 +21,7 @@ if($Host::MaxBanTime $= "") $Host::MaxBanTime = 60*60*24*7; //default is one wee
 if($Host::UseSanctionedAdmin $= "") $Host::UseSanctionedAdmin = 0;
 $Host::CRCTextures = 0;
 
-$initsp = 20;
+$initsp = 30;
 $TribesDamageToNumericDamage = 100.0;
 $maxDamagedBy = 10;
 $damagedByEraseDelay = 60;
